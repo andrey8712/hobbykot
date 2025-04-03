@@ -15,7 +15,8 @@ export default {
     			sans: [
     				'Instrument Sans',
                     ...defaultTheme.fontFamily.sans
-                ]
+                ],
+					montserrat: ['Montserrat', 'sans-serif']
     		},
     		borderRadius: {
     			lg: 'var(--radius)',
