@@ -11,6 +11,14 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/details', function () {
+    return Inertia::render('Details');
+})->name('details');
+
+Route::get('/cart', function () {
+    return Inertia::render('Cart');
+})->name('cart');
+
 Route::get('test1', [\App\Http\Controllers\TestController::class, 'index']);
 Route::get('test2', [\App\Http\Controllers\TestController::class, 'test']);
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3'
 import { Truck, Clock, Package, ShoppingCart, Heart } from 'lucide-vue-next'
+import CatalogDropdown from './components/CatalogDropdown.vue'
 </script>
 
 <template>
@@ -71,11 +72,34 @@ import { Truck, Clock, Package, ShoppingCart, Heart } from 'lucide-vue-next'
     <!-- Меню навигации -->
     <nav class="hidden lg:block bg-[#443472]">
       <div class="max-w-7xl mx-auto px-6 py-3">
-        <ul class="flex gap-10 text-sm text-white font-medium">
-          <li><a href="#" class="hover:underline">Каталог</a></li>
-          <li><a href="#" class="hover:underline">Оплата и доставка</a></li>
-          <li><a href="#" class="hover:underline">О нас</a></li>
-          <li><a href="#" class="hover:underline">Контакты</a></li>
+        <ul class="flex gap-10 text-sm text-white font-medium items-center">
+          <li>
+            <CatalogDropdown />
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center min-h-[40px] hover:text-white/80 transition-colors"
+            >
+              Оплата и доставка
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center min-h-[40px] hover:text-white/80 transition-colors"
+            >
+              О нас
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center min-h-[40px] hover:text-white/80 transition-colors"
+            >
+              Контакты
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

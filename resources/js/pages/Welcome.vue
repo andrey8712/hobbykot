@@ -12,6 +12,11 @@ import Footer from '@/front/Footer.vue'
 import Filters from '@/front/Filters.vue'
 import { Link } from '@inertiajs/vue3'
 import { ref, onMounted, watch } from 'vue'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
+
+defineOptions({
+  layout: DefaultLayout
+})
 
 const cartVisibility = ref<Record<number, boolean>>({})
 const toggleCart = (id: number) => {
@@ -68,8 +73,6 @@ function restrictToDigits(e: KeyboardEvent) {
 </script>
 
 <template>
-    <Header />
-
     <main class="w-full pt-8 pb-16">
         <div class="max-w-7xl mx-auto px-4">
 
@@ -79,7 +82,6 @@ function restrictToDigits(e: KeyboardEvent) {
             <span class="mx-2">/</span>
             <span>Все товары</span>
         </nav>
-
 
         <div class="lg:flex lg:space-x-8">
             <!-- Фильтры -->
@@ -123,17 +125,25 @@ function restrictToDigits(e: KeyboardEvent) {
                 >
                 <!-- Изображение товара -->
                 <div class="relative">
-                    <img
+                  <!-- Скидка -->
+                  <template v-if="i === 2">
+                    <div class="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded-md shadow">
+                      -{{ Math.round((1 - 11905 / 14500) * 100) }}%
+                    </div>
+                  </template>
+
+                  <!-- Артикул -->
+                  <div class="absolute top-2 right-2 bg-white/80 text-black/60 text-[11px] px-2 py-0.5 rounded">
+                    Арт. 2345901
+                  </div>
+
+                  <img
                     :src="currentImage[i] || gallery[0]"
                     alt="Товар"
                     class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75"
-                    />
-                    <template v-if="i === 2">
-                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded-md shadow">
-                        -{{ Math.round((1 - 11905 / 14500) * 100) }}%
-                    </div>
-                    </template>
+                  />
                 </div>
+
 
                 <!-- Миниатюры -->
                 <div class="flex gap-2 mt-2">
@@ -212,8 +222,6 @@ function restrictToDigits(e: KeyboardEvent) {
         </div>
         </div>
     </main>
-
-    <Footer />
 </template>
   
 <style scoped>
