@@ -19,6 +19,10 @@ Route::get('/cart', function () {
     return Inertia::render('Cart');
 })->name('cart');
 
+Route::get('/text', function () {
+    return Inertia::render('Text');
+})->name('text');
+
 Route::get('test1', [\App\Http\Controllers\TestController::class, 'index']);
 Route::get('test2', [\App\Http\Controllers\TestController::class, 'test']);
 
