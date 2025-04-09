@@ -46,10 +46,10 @@ import CatalogDropdown from './components/CatalogDropdown.vue'
             <img src="/img/telegram.svg" alt="Telegram" class="w-6 h-6" />
           </a>
 
-          <a href="#" class="flex items-center gap-1 text-[#443472] hover:text-[#6b7fa3]">
+          <Link :href="route('cart')" class="flex items-center gap-1 text-[#443472] hover:text-[#6b7fa3]">
             <ShoppingCart class="w-6 h-6" />
             <span>0</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
